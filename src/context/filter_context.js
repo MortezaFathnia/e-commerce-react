@@ -25,7 +25,7 @@ const initialState = {
     min_price: 0,
     max_price: 0,
     price: 0,
-    shopping: false
+    shipping: false
   }
 }
 
@@ -66,6 +66,9 @@ export const FilterProvider = ({ children }) => {
     }
     if (name === 'color') {
       value = e.target.dataset.color;
+    }
+    if (name === 'price') {
+      value = Number(value);
     }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }

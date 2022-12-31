@@ -7,7 +7,7 @@ import { FaCheck } from 'react-icons/fa'
 const Filters = () => {
   const { filters:
     {
-      text, category, company, max_price, color, min_price, price, shopping
+      text, category, company, max_price, color, min_price, price, shipping
     },
     updateFilters,
     clearFilters,
@@ -76,12 +76,12 @@ const Filters = () => {
               colors.map((c, index) => {
                 if (c === 'all') {
                   return <button
-                   name='color' 
-                   onClick={updateFilters} 
-                   data-color="all"
-                   key='all'
-                   className={`${color==='all'? 'all-btn active':'all-btn'}`}
-                   >all</button>
+                    name='color'
+                    onClick={updateFilters}
+                    data-color="all"
+                    key='all'
+                    className={`${color === 'all' ? 'all-btn active' : 'all-btn'}`}
+                  >all</button>
                 }
                 return (
                   <button
@@ -99,6 +99,22 @@ const Filters = () => {
             }
           </div>
           {/* end of colors */}
+          {/* price */}
+          <div className="form-control">
+            <h5>price</h5>
+            <p className='price'>
+              {formatPrice(price)}
+            </p>
+            <input
+              type="range"
+              name='price'
+              onChange={updateFilters}
+              min={min_price}
+              max={max_price}
+              value={price}
+               />
+          </div>
+          {/* end of price */}
         </form>
       </div>
     </Wrapper>
